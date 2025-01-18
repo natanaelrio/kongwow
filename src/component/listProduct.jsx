@@ -63,6 +63,7 @@ export default function ListProduct({ data }) {
                 price: item.price,
                 total: item.total,
                 count: item.count,
+                weight: item.weight,
             })),
             totalCount,
             grandTotal,
@@ -73,7 +74,7 @@ export default function ListProduct({ data }) {
         const { items, grandTotal } = getCartSummary();
         const waNumber = process.env.NEXT_PUBLIC_WA; // Ganti dengan nomor WhatsApp tujuan
         const itemList = items.map((item) =>
-            `- ${item.title} (${item.count} x ${formatRupiah(item.price)}) = ${formatRupiah(item.total)}`
+            `- ${item.title} - ${item.weight} (${item.count} x ${formatRupiah(item.price)}) = ${formatRupiah(item.total)}`
         ).join('%0A');
         const message = `Halo Kong Wow, saya ingin memesan:%0A${itemList}%0ATotal Keseluruhan: ${formatRupiah(grandTotal)}`;
         const waLink = `https://wa.me/${waNumber}?text=${message}`;
@@ -81,6 +82,7 @@ export default function ListProduct({ data }) {
     };
 
     const { items, totalCount, grandTotal } = getCartSummary();
+
     return (
         <>
             <div className={styles.countainerluar}>
@@ -129,11 +131,9 @@ export default function ListProduct({ data }) {
                                         </div>
                                         <div className={styles.angka}>
                                             <div className={styles.satu}>{product.discount_percent} %</div>
-                                            {cartItem && (
-                                                <div className={styles.total}>
-                                                    Total: {formatRupiah(productTotal)}
-                                                </div>
-                                            )}
+                                        </div>
+                                        <div className={styles.weight}>
+                                            {product.weight}
                                         </div>
                                     </div>
                                 );
@@ -151,7 +151,7 @@ export default function ListProduct({ data }) {
                         <ul>
                             {items?.map((item, index) => (
                                 <li key={index}>
-                                    {item.title} - {item.count} x {formatRupiah(item.price)} = {formatRupiah(item.total)}
+                                    {item.title}({item.weight}) - {item.count} x {formatRupiah(item.price)} = {formatRupiah(item.total)}
                                 </li>
                             ))}
                         </ul>

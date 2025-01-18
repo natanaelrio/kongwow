@@ -161,6 +161,17 @@
 }
 
 
+.weight {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    border-radius: 50%;
+    padding: 10px;
+    background-color: var(--color-black);
+    color: var(--color-white);
+    font-size: 0.7rem;
+}
+
 .cartSummary {
     position: fixed;
     bottom: 30px;
@@ -216,6 +227,7 @@
 
 .cartSummary .pesan .tombolpesansekarang {
     background-color: var(--color-black);
+    color: var(--color-white);
     padding: 20px;
     display: flex;
     align-items: center;
@@ -316,6 +328,14 @@
     .cartSummary .arrowbawah {
         top: 20px;
         right: 20px;
+    }
+
+
+    .weight {
+        top: 15px;
+        right: 20px;
+        padding: 10px;
+        font-size: 0.6rem;
     }
 }
 
