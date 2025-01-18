@@ -9,6 +9,7 @@ import { FaRegTrashAlt } from "react-icons/fa";
 import { IoIosArrowDown, IoIosArrowUp, IoIosArrowForward } from "react-icons/io";
 import useWindowDimensions from '@/utils/getWindowDimensions';
 import { useBearStore } from '@/zustand/zustand';
+import { ConvertToDecimal } from '@/utils/convertToDecimal';
 
 export default function ListProduct({ data }) {
     const { width } = useWindowDimensions();
@@ -56,6 +57,7 @@ export default function ListProduct({ data }) {
     const getCartSummary = () => {
         const totalCount = cart.reduce((acc, item) => acc + item.count, 0);
         const grandTotal = cart.reduce((acc, item) => acc + item.total, 0);
+        const grandTotalWeight = cart.reduce((acc, item) => acc + item.weight * item.count, 0);
 
         return {
             items: cart.map((item) => ({
@@ -67,21 +69,22 @@ export default function ListProduct({ data }) {
             })),
             totalCount,
             grandTotal,
+            grandTotalWeight
         };
     };
+    const { items, totalCount, grandTotal, grandTotalWeight } = getCartSummary();
 
     const handlePesanSekarang = () => {
         const { items, grandTotal } = getCartSummary();
         const waNumber = process.env.NEXT_PUBLIC_WA; // Ganti dengan nomor WhatsApp tujuan
         const itemList = items.map((item) =>
-            `- ${item.title} - ${item.weight} (${item.count} x ${formatRupiah(item.price)}) = ${formatRupiah(item.total)}`
+            `- ${item.title} (${ConvertToDecimal(item.weight)}kg) (${item.count} x ${formatRupiah(item.price)}) = ${formatRupiah(item.total)}`
         ).join('%0A');
-        const message = `Halo Kong Wow, saya ingin memesan:%0A${itemList}%0ATotal Keseluruhan: ${formatRupiah(grandTotal)}`;
+        const message = `Halo Kong Wow, saya ingin memesan:%0A${itemList}%0ATotal Berat:${ConvertToDecimal(grandTotalWeight)}kg%0ATotal Keseluruhan: ${formatRupiah(grandTotal)} `;
         const waLink = `https://wa.me/${waNumber}?text=${message}`;
         window.open(waLink, '_blank');
     };
 
-    const { items, totalCount, grandTotal } = getCartSummary();
 
     return (
         <>
@@ -133,7 +136,7 @@ export default function ListProduct({ data }) {
                                             <div className={styles.satu}>{product.discount_percent} %</div>
                                         </div>
                                         <div className={styles.weight}>
-                                            {product.weight}
+                                            {ConvertToDecimal(product.weight) + 'kg'}
                                         </div>
                                     </div>
                                 );
@@ -151,7 +154,7 @@ export default function ListProduct({ data }) {
                         <ul>
                             {items?.map((item, index) => (
                                 <li key={index}>
-                                    {item.title}({item.weight}) - {item.count} x {formatRupiah(item.price)} = {formatRupiah(item.total)}
+                                    {item.title}({ConvertToDecimal(item.weight)}kg) - {item.count} x {formatRupiah(item.price)} = {formatRupiah(item.total)}
                                 </li>
                             ))}
                         </ul>
