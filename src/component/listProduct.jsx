@@ -6,17 +6,19 @@ import Image from 'next/image';
 import { BsCartPlus } from "react-icons/bs";
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 import { FaRegTrashAlt } from "react-icons/fa";
-import { IoIosArrowDown, IoIosArrowUp, IoIosArrowForward } from "react-icons/io";
+import { IoIosArrowUp, IoIosArrowForward } from "react-icons/io";
 import useWindowDimensions from '@/utils/getWindowDimensions';
 import { useBearStore } from '@/zustand/zustand';
 import { ConvertToDecimal } from '@/utils/convertToDecimal';
+import Rekapan from '@/component/rekapan';
 
 export default function ListProduct({ data }) {
     const { width } = useWindowDimensions();
     const [cart, setCart] = useState([]);
-    const [detail, setDetail] = useState(true);
 
     const setButonWhatsapp = useBearStore((state) => state.setButonWhatsapp);
+    const setDetailList = useBearStore((state) => state.setDetailList);
+    const detailList = useBearStore((state) => state.detailList);
 
     useEffect(() => {
         setButonWhatsapp(cart.length > 0);
@@ -95,7 +97,6 @@ export default function ListProduct({ data }) {
                             {data?.map((product) => {
                                 const cartItem = cart.find((item) => item.id === product.id);
                                 const productCount = cartItem?.count || 0;
-                                const productTotal = cartItem?.total || 0;
 
                                 return (
                                     <div key={product.id} className={`${styles.produk} ${cartItem ? styles.inCart : ''}`}>
@@ -146,31 +147,17 @@ export default function ListProduct({ data }) {
                 </div>
             </div>
             <div className={styles.cartSummary} style={items.length > 0 ? { display: 'block' } : { display: 'none' }}>
-                <div className={styles.rekapan}
-                    onClick={() => setDetail(!detail)}
-                    style={detail ? { display: 'none' } : { display: 'block' }}>
-                    <h2>Rekapan Keranjang</h2>
-                    {items.length > 0 ? (
-                        <ul>
-                            {items?.map((item, index) => (
-                                <li key={index}>
-                                    {item.title}({ConvertToDecimal(item.weight)}kg) - {item.count} x {formatRupiah(item.price)} = {formatRupiah(item.total)}
-                                </li>
-                            ))}
-                        </ul>
-                    ) : (
-                        <p>Keranjang kosong.</p>
-                    )}
-                    <h3>Total Item: {totalCount}</h3>
-                    <h3>Total Keseluruhan: {formatRupiah(grandTotal)}</h3>
-                    <div className={styles.arrowbawah} onClick={() => setDetail(!detail)}>
-                        <IoIosArrowDown />
-                    </div>
-                </div>
+
+                {!detailList && <Rekapan
+                    items={items}
+                    grandTotal={grandTotal}
+                    totalCount={totalCount}
+                />}
+
                 <div className={styles.pesan}>
                     <div className={styles.detail}
-                        onClick={() => setDetail(!detail)}
-                        style={!kondisiWidth && !detail ? { display: 'none' } : { display: 'flex' }}
+                        onClick={() => setDetailList(!detailList)}
+                        style={!kondisiWidth && !detailList ? { display: 'none' } : { display: 'flex' }}
                     >
                         <span>
                             Lihat Detail ({items.length})
@@ -178,7 +165,7 @@ export default function ListProduct({ data }) {
                         </span>
                     </div>
                     <div className={styles.tombolpesansekarang}
-                        style={!kondisiWidth && !detail ? { marginTop: '2px' } : { margin: 0 }}
+                        style={!kondisiWidth && !detailList ? { marginTop: '2px' } : { margin: 0 }}
                         onClick={handlePesanSekarang}
                     >
                         <span>
@@ -187,8 +174,8 @@ export default function ListProduct({ data }) {
                     </div>
                 </div>
             </div >
-            {!detail && <div className={styles.bgblack}
-                onClick={() => setDetail(!detail)}
+            {!detailList && <div className={styles.bgblack}
+                onClick={() => setDetailList(!detailList)}
             ></div>}
         </>
     );
