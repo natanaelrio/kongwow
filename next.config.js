@@ -14,7 +14,8 @@ const nextConfig = {
             'tsuzumi-bucket.s3.amazonaws.com',
             'pelangiteknik.vercel.app',
             'vercel.app',
-            'res.cloudinary.com'
+            'res.cloudinary.com',
+            'kongwow.vercel.app'
         ],
     }, async headers() {
         return [
