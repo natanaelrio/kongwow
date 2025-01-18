@@ -1,0 +1,380 @@
+.countainerluar {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: var(--color-white);
+}
+
+.countainer {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+
+/* LIST PRODUK */
+.listproduk {
+    width: 1000px;
+    padding: 0 20px;
+    color: var(--color-black);
+}
+
+.gridlist {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    justify-content: center;
+}
+
+
+.produk {
+    position: relative;
+    background-color: rgb(255, 255, 255);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, .1), 0 4px 6px -4px rgba(0, 0, 0, .1);
+}
+
+.produk:hover {
+    transform: translate(0, -3px);
+    transition: all ease 0.2s;
+}
+
+.produk .gambar {
+    /* height: 250px; */
+    border-radius: 12px 12px 0 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.produk .gambar img {
+    border-radius: 12px 12px 0 0;
+    height: fit-content;
+    max-width: 100%;
+    background-position: center;
+    object-position: top;
+    object-fit: contain;
+}
+
+.informasi {
+    padding: 10px 20px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.informasi .judul {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.informasi .harga {
+    font-size: 1rem;
+    font-weight: 400;
+    display: flex;
+    gap: 7px;
+    display: flex;
+    align-items: center;
+}
+
+.informasi .harga .hargaasli {
+    text-decoration: line-through;
+    font-weight: 500;
+    font-size: 0.7rem;
+}
+
+.informasi .harga .hargadiskon {
+    font-weight: 700;
+}
+
+
+.informasi .logo {
+    font-size: 1rem;
+}
+
+.informasi .cartActions {
+    display: flex;
+    width: fit-content;
+    border-radius: 12px;
+    align-items: center;
+    gap: 10px;
+    background-color: var(--color-yellow);
+}
+
+.informasi .cartActions span {
+    font-weight: 700;
+}
+
+.informasi button {
+    padding: 10px 20px;
+    border-radius: 7px;
+    background-color: var(--color-yellow);
+    color: var(--color-black);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.informasi button:hover {
+    background-color: var(--hover-color-yellow);
+    transition: all ease 0.1;
+}
+
+.informasi span {
+    white-space: nowrap;
+}
+
+.angka {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: -5px;
+    top: 8px;
+    z-index: 6;
+    cursor: pointer;
+}
+
+.angka .dua {
+    width: 5px;
+    height: 5px;
+    border-radius: 0 0 0 5px;
+    background-color: #f94d63;
+}
+
+.angka .satu {
+    font-size: 1rem;
+    width: 80px;
+    height: 40px;
+    padding: 4px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px 12px 12px 0;
+    font-weight: 800;
+    line-height: 12px;
+    letter-spacing: .1px;
+    color: #fff;
+    background-color: #f94d63;
+}
+
+
+.cartSummary {
+    position: fixed;
+    bottom: 30px;
+    right: 100px;
+    z-index: 9999;
+}
+
+.cartSummary .rekapan {
+    background-color: var(--color-black);
+    font-size: 0.7rem;
+    padding: 20px 30px 30px 30px;
+    position: relative;
+    border-radius: 12px 12px 0 0;
+    line-height: 25px;
+}
+
+.cartSummary h3 {
+    font-size: 0.7rem;
+}
+
+.cartSummary .arrowbawah {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.7rem;
+    cursor: pointer;
+}
+
+.cartSummary .pesan {
+    display: flex;
+    flex-direction: column;
+}
+
+.cartSummary .pesan .detail {
+    background-color: var(--color-grey);
+    color: var(--color-black);
+    padding: 5px 20px;
+    text-align: center;
+    border-radius: 10px 10px 0 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.cartSummary .pesan .detail span {
+    gap: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.cartSummary .pesan .tombolpesansekarang {
+    background-color: var(--color-black);
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-radius: 0 0 10px 10px;
+    width: fit-content;
+    cursor: pointer;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, .1), 0 4px 6px -4px rgba(0, 0, 0, .1);
+}
+
+.cartSummary .pesan .tombolpesansekarang:hover {
+    background-color: var(--hover-color-black);
+    transition: all ease 0.1s;
+}
+
+.cartSummary .pesan .tombolpesansekarang span {
+    display: flex !important;
+    align-items: center;
+    gap: 10px;
+}
+
+.bgblack {
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 100dvh;
+    background-color: black;
+    opacity: 0.5;
+}
+
+@media only screen and (max-width: 767px) {
+    .gridlist {
+        grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    }
+
+    .informasi button {
+        gap: 10px
+    }
+
+    .cartSummary {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100vw;
+    }
+
+    .cartSummary .rekapan {
+        width: 100vw;
+        padding: 30px;
+    }
+
+    .cartSummary .pesan .tombolpesansekarang {
+        padding: 10px 20px 10px 5px;
+        border-radius: 0;
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        font-size: 0.7rem;
+        font-weight: 700;
+    }
+
+    .cartSummary .pesan .tombolpesansekarang span {
+        background-color: var(--color-white);
+        color: var(--color-black);
+        height: 40px;
+        padding: 10px;
+        border-radius: 7px;
+        width: 100%;
+        justify-content: center;
+    }
+
+
+    .cartSummary .pesan .detail {
+        width: 50%;
+        border-radius: 0;
+        font-size: 0.7rem;
+        font-weight: 700;
+        padding: 10px 5px 10px 20px;
+        background-color: var(--color-black);
+    }
+
+    .cartSummary .pesan .detail span {
+        width: 100%;
+        border-radius: 7px;
+        height: 40px;
+        background-color: var(--color-white);
+        color: var(--color-black);
+    }
+
+    .cartSummary .pesan {
+        flex-direction: row;
+        width: 100vw;
+    }
+
+    .cartSummary .arrowbawah {
+        top: 20px;
+        right: 20px;
+    }
+}
+
+@media only screen and (max-width: 579px) {
+    .gridlist {
+        grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    }
+
+    .informasi button {
+        gap: 10px
+    }
+
+    .informasi .judul {
+        font-size: 0.7rem;
+    }
+
+    .informasi .harga {
+        font-size: 0.7rem;
+    }
+
+    .informasi .harga .hargaasli {
+        font-size: 0.5rem;
+    }
+
+    .informasi .logo {
+        font-size: 0.7rem;
+    }
+
+    .informasi span {
+        font-size: 0.7rem;
+    }
+
+    .angka .satu {
+        font-size: 0.7rem;
+        width: 50px;
+        height: 20px;
+        padding: 4px 8px;
+    }
+}
+
+
+@media only screen and (max-width: 480px) {
+
+    .informasi .judul {
+        font-size: 0.6rem;
+    }
+
+    .informasi {
+        padding: 10px 15px 15px 15px;
+    }
+
+    .gridlist {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: 15px;
+    }
+
+    .informasi button {
+        padding: 10px 15px;
+    }
+
+    .angka .satu {
+        font-size: 0.6rem;
+    }
+}

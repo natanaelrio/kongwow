@@ -1,0 +1,117 @@
+.container {
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+    flex-direction: row;
+}
+
+.dalamcontainer {
+    background-color: var(--color-white);
+    height: 100%;
+    border-radius: 12px;
+    width: 1200px;
+    display: flex;
+    gap: 50px;
+}
+
+.dalamcontainer .text {
+    width: 100%;
+    color: var(--color-black);
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+}
+
+.dalamcontainer .isi {
+    font-size: 1.2rem;
+}
+
+.dalamcontainer .text h1 {
+    font-size: 3rem;
+}
+
+.dalamcontainer .googlemap {
+    padding: 50px;
+    width: 100%;
+}
+
+.dalamcontainer .googlemap .dalamgooglemap {
+    width: 100%;
+    height: 300px;
+    border: 0;
+}
+
+.pesanwhatsapp button {
+    background: var(--color-green);
+    color: #111b21;
+    padding: 10px 15px;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.pesanwhatsapp button:hover {
+    background: var(--hover-color-green);
+    transition: all ease 0.1s;
+}
+
+
+@media only screen and (max-width: 1066px) {
+    .dalamcontainer {
+        flex-wrap: wrap;
+    }
+
+    .dalamcontainer .text {
+        padding: 50px 50px 0 50px;
+    }
+
+    .dalamcontainer .googlemap {
+        padding: 0 50px 50px 50px;
+        width: 100%;
+    }
+}
+
+
+
+@media only screen and (max-width: 480px) {
+    .dalamcontainer {
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .dalamcontainer .text {
+        padding: 20px 20px 0 20px;
+    }
+
+    .dalamcontainer .googlemap {
+        padding: 0 20px 20px 20px;
+        width: 100%;
+    }
+
+    .dalamcontainer .isi {
+        font-size: 0.7rem;
+    }
+
+    .dalamcontainer .text h1 {
+        font-size: 1.5rem;
+    }
+
+    .pesanwhatsapp button {
+        font-size: 0.7rem;
+    }
+
+    .dalamcontainer .googlemap .dalamgooglemap {
+        height: 200px;
+    }
+
+    .ikonwa {
+        font-size: 10px;
+    }
+
+}

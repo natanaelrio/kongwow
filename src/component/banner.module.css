@@ -1,0 +1,264 @@
+.containermobile {
+    display: none;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+
+.container .gambar {
+    width: 1600px;
+    position: relative;
+}
+
+.container .gambar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.container .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(0, 0, 0, 1.5), rgba(0, 0, 0, 0));
+    pointer-events: none;
+}
+
+.container .text {
+    position: absolute;
+    top: 50%;
+    left: 200px;
+    transform: translateY(-50%);
+    color: white;
+    z-index: 1;
+    pointer-events: auto;
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.container .text h1 {
+    margin: 0;
+    font-size: 4.5rem;
+    font-weight: bold;
+    line-height: 0.9;
+}
+
+.container .text p {
+    margin: 5px 0 0;
+    font-size: 0.7rem;
+    line-height: 1.5;
+}
+
+.container .text button {
+    background: #25d366;
+    color: var(--color-black);
+    padding: 10px 15px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: fit-content;
+    cursor: pointer;
+}
+
+.container .text button:hover {
+    background: #25d200;
+    transition: all ease 0.1s;
+}
+
+
+
+
+.tombolwhatsapp {
+    position: fixed;
+    z-index: 1000;
+    /* bottom: 50px; */
+    /* right: 70px; */
+    display: none !important;
+}
+
+.tombolwhatsapp button {
+    background: var(--color-green);
+    color: #111b21;
+    padding: 10px 15px;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    /* width: fit-content; */
+    cursor: pointer;
+}
+
+.tombolwhatsapp button:hover {
+    background: var(--hover-color-green);
+    transition: all ease 0.1s;
+}
+
+.tombolwhatsapp span {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.isi {
+    height: 10000px;
+}
+
+
+@media only screen and (min-width: 1500px) {
+
+    .container .text {
+        width: 450px;
+    }
+
+    .container .text h1 {
+        font-size: 5.5rem;
+    }
+
+    .container .text p {
+        font-size: 1rem;
+    }
+
+    .container .text button {
+        font-size: 1rem;
+    }
+}
+
+
+/* Mobile styles using media query */
+@media only screen and (max-width: 1024px) {
+
+    .container .text {
+        left: 50px;
+        width: 250px;
+    }
+
+    .container .text h1 {
+        font-size: 3rem;
+    }
+
+    .container .text p {
+        font-size: 0.5rem;
+    }
+
+    .container .text button {
+        padding: 5px 10px;
+    }
+
+
+}
+
+@media only screen and (max-width: 767px) {
+
+    .container {
+        display: none;
+    }
+
+    .containermobile {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .containermobile .gambar {
+        height: 100%;
+        width: 1600px;
+        position: relative;
+    }
+
+    .containermobile .gambar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .containermobile .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to top, rgba(0, 0, 0, 1.5), rgba(0, 0, 0, 0));
+        pointer-events: none;
+    }
+
+    .containermobile .text {
+        position: absolute;
+        bottom: 0;
+        /* transform: translateY(-50%); */
+        color: white;
+        z-index: 1;
+        pointer-events: auto;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 30px;
+    }
+
+    .containermobile .text h1 {
+        margin: 0;
+        font-size: 2rem;
+        font-weight: bold;
+        line-height: 0.9;
+    }
+
+    .containermobile .text p {
+        margin: 5px 0 0;
+        font-size: 0.8rem;
+        line-height: 1.5;
+    }
+
+
+    .tombolwhatsapp {
+        bottom: 90px;
+        right: 40px;
+        display: unset !important;
+    }
+
+}
+
+
+@media only screen and (max-width: 480px) {
+
+    .containermobile .text h1 {
+        font-size: 1.8rem;
+    }
+
+    .containermobile .text p {
+        font-size: 0.7rem;
+    }
+
+    .tombolwhatsapp button {
+        font-size: 0.7rem;
+    }
+
+    /*  PROMO */
+    .promo {
+        font-size: 0.35rem;
+    }
+
+    .icon {
+        display: flex;
+        align-items: center;
+        font-size: 1.2rem;
+    }
+
+    .promo .dalamdes {
+        gap: 5px;
+    }
+
+
+}
