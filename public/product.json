@@ -1,65 +1,74 @@
 [
     {
         "id": 1,
-        "title": "Kaos Polos Unisex",
-        "price": 80000,
-        "original_price": 100000,
-        "discount_percent": 20,
+        "title": "Sapi Panggang",
+        "price": 21000,
+        "original_price": 42000,
+        "discount_percent": 50,
         "count": 1,
-        "image_url": "/bannermobile.webp"
+        "image_url": "/sapipanggang.webp"
     },
     {
         "id": 2,
         "title": "Balado Extra Pedas",
-        "price": 120000,
-        "original_price": 150000,
-        "discount_percent": 20,
+        "price": 21000,
+        "original_price": 42000,
+        "discount_percent": 50,
         "count": 1,
-        "image_url": "/bannermobile.webp"
+        "image_url": "/baladoextrapedas.webp"
     },
     {
         "id": 3,
-        "title": "Sepatu Sneakers",
-        "price": 300000,
-        "original_price": 400000,
-        "discount_percent": 25,
+        "title": "Balado Pedas Manis",
+        "price": 21000,
+        "original_price": 42000,
+        "discount_percent": 50,
         "count": 1,
-        "image_url": "/bannermobile.webp"
+        "image_url": "/sapipanggang.webp"
     },
     {
         "id": 4,
-        "title": "Kaos Polos Unisex",
-        "price": 80000,
-        "original_price": 100000,
-        "discount_percent": 20,
+        "title": "Balado",
+        "price": 21000,
+        "original_price": 42000,
+        "discount_percent": 50,
         "count": 1,
-        "image_url": "/bannermobile.webp"
+        "image_url": "/baladoextrapedas.webp"
     },
     {
         "id": 5,
-        "title": "Jaket Hoodie",
-        "price": 120000,
-        "original_price": 150000,
-        "discount_percent": 20,
+        "title": "Jagung Bakar",
+        "price": 21000,
+        "original_price": 42000,
+        "discount_percent": 50,
         "count": 1,
-        "image_url": "/bannermobile.webp"
+        "image_url": "/sapipanggang.webp"
     },
     {
         "id": 6,
-        "title": "Sepatu Sneakers",
-        "price": 300000,
-        "original_price": 400000,
-        "discount_percent": 25,
+        "title": "Rumput Laut",
+        "price": 21000,
+        "original_price": 42000,
+        "discount_percent": 50,
         "count": 1,
-        "image_url": "/bannermobile.webp"
+        "image_url": "/baladoextrapedas.webp"
     },
     {
         "id": 7,
-        "title": "Sepatu Sneakers",
-        "price": 300000,
-        "original_price": 400000,
-        "discount_percent": 25,
+        "title": "Keju",
+        "price": 21000,
+        "original_price": 42000,
+        "discount_percent": 50,
         "count": 1,
-        "image_url": "/bannermobile.webp"
+        "image_url": "/sapipanggang.webp"
+    },
+    {
+        "id": 8,
+        "title": "Barbeque",
+        "price": 21000,
+        "original_price": 42000,
+        "discount_percent": 50,
+        "count": 1,
+        "image_url": "/baladoextrapedas.webp"
     }
 ]

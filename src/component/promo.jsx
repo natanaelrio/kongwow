@@ -37,7 +37,7 @@ export default function Promo() {
                         </div>
                         <div className={styles.textpromo}>
                             <h1>Promo </h1>
-                            <p>GRATIS ONGKIR</p>
+                            <p>Diskon trus</p>
                         </div>
                     </div>
                 </div>
