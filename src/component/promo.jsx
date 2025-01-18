@@ -26,7 +26,7 @@ export default function Promo() {
                         </div>
                         <div className={styles.textpromo}>
                             <h1> Pemasanan</h1>
-                            <p>COD / Langsung</p>
+                            <p>COD / Transfer</p>
                         </div>
                     </div>
                 </div>
