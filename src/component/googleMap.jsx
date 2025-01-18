@@ -13,13 +13,13 @@ export default function GoogleMap() {
                             Kong :
                         </b>
                         <span>
-                            Bisa jadi istilah informal atau slang yang berarti "hebat" atau "besar."
+                            Bisa jadi istilah informal atau slang yang berarti &quot;hebat&quot; atau &quot;besar.&quot;
                         </span>
                     </div>
                     <div className={styles.isi}>
                         <b>Wow:</b>
                         <span>
-                            kejutan, inovasi, dan daya tarik unik sehingga orang langsung berkata "Wow!"
+                            kejutan, inovasi, dan daya tarik unik sehingga orang langsung berkata &quot;Wow!&quot;
                         </span>
                     </div>
                     <div className={styles.pesanwhatsapp}
