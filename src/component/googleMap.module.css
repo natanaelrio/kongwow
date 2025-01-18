@@ -3,6 +3,7 @@
     justify-content: center;
     padding: 30px;
     flex-direction: row;
+    background-color: var(--color-black);
 }
 
 .dalamcontainer {

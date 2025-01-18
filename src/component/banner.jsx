@@ -26,7 +26,8 @@ export default function Banner() {
                             <p>Camilan singkong premium, menawarkan rasa autentik, renyah, lezat, dan sehat.</p>
                             <button
                                 onClick={() => OpenWhatsApp()}
-                                style={{ display: isVisible ? "flex" : "none" }}>
+                            // style={{ display: isVisible ? "flex" : "none" }}
+                            >
                                 <FaWhatsapp className={styles.logo} size={30} />
                                 <span>
                                     Whatsapp Sekarang
