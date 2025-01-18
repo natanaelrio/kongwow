@@ -87,7 +87,7 @@ export default function ListProduct({ data }) {
                 <div className={styles.countainer}>
                     <div className={styles.listproduk}>
                         <div className={styles.gridlist}>
-                            {data.map((product) => {
+                            {data?.map((product) => {
                                 const cartItem = cart.find((item) => item.id === product.id);
                                 const productCount = cartItem?.count || 0;
                                 const productTotal = cartItem?.total || 0;
@@ -149,7 +149,7 @@ export default function ListProduct({ data }) {
                     <h2>Rekapan Keranjang</h2>
                     {items.length > 0 ? (
                         <ul>
-                            {items.map((item, index) => (
+                            {items?.map((item, index) => (
                                 <li key={index}>
                                     {item.title} - {item.count} x {formatRupiah(item.price)} = {formatRupiah(item.total)}
                                 </li>
