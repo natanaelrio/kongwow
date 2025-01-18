@@ -19,7 +19,7 @@ export default function ListProduct({ data }) {
 
     useEffect(() => {
         setButonWhatsapp(cart.length > 0);
-    }, [cart]);
+    }, [cart, setButonWhatsapp]);
 
     const kondisiWidth = width <= 767;
 
