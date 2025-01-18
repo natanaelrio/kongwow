@@ -170,6 +170,7 @@
 
 .cartSummary .rekapan {
     background-color: var(--color-black);
+    color: var(--color-white);
     font-size: 0.7rem;
     padding: 20px 30px 30px 30px;
     position: relative;
