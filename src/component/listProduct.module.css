@@ -26,7 +26,7 @@
     margin-bottom: 20px;
     position: sticky;
     top: -2px;
-    z-index: 9999;
+    z-index: 1000;
     /* overflow-x: none;
     white-space: nowrap;
     -webkit-overflow-scrolling: touch; */
@@ -242,7 +242,7 @@
     position: fixed;
     bottom: 30px;
     right: 100px;
-    z-index: 9999;
+    z-index: 1001;
 }
 
 .cartSummary .rekapan {
@@ -316,7 +316,17 @@
 }
 
 .bgblack {
-    z-index: 99999;
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 100dvh;
+    background-color: var(--color-black);
+    opacity: 0.9;
+}
+
+.bgblackdetal {
+    z-index: 1011;
     position: fixed;
     top: 0;
     width: 100vw;

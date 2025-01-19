@@ -248,7 +248,7 @@ export default function ListProduct() {
                 onClick={() => setDetailList(!detailList)}
             ></div>}
 
-            {!detailGambar && <div className={styles.bgblack} onClick={() => setDetailGambar(true)}></div>}
+            {!detailGambar && <div className={styles.bgblackdetal} onClick={() => setDetailGambar(true)}></div>}
 
             {!detailGambar && <DetailGambar dataDetailGambar={dataDetailGambar} />}
 
