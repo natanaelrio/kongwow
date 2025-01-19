@@ -128,7 +128,9 @@ export default function ListProduct() {
             <div className={styles.countainerluar}>
                 <div className={styles.countainer}>
 
-                    <div className={styles.kemasan}>Kemasan</div>
+                    <div className={styles.kemasan}>
+                        Kemasan
+                    </div>
 
                     <div
                         ref={filterRef}
@@ -176,7 +178,7 @@ export default function ListProduct() {
                                                         <div className={styles.logo}>
                                                             <BsCartPlus />
                                                         </div>
-                                                        <span>Keranjang+</span>
+                                                        <span>Tambahkan+</span>
                                                     </button>
                                                 ) : (
                                                     <div className={styles.cartActions}>

@@ -16,7 +16,6 @@
 .kemasan {
     font-size: 3rem;
     font-weight: 1000;
-    margin-bottom: -30px;
 }
 
 .filter {
@@ -24,7 +23,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 20px 0;
+    margin-bottom: 20px;
     position: sticky;
     top: -2px;
     z-index: 9999;
@@ -418,6 +417,8 @@
     .kemasan {
         font-size: 2rem;
         font-weight: 1000;
+        text-align: left;
+        padding: 0 20px;
     }
 
     .filter {
