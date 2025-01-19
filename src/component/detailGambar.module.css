@@ -1,0 +1,56 @@
+.detailgambar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+    z-index: 9999991;
+    width: 500px;
+    height: 500px;
+    background-color: var(--color-black);
+    border-radius: 12px;
+}
+
+.dalamgambar {
+    position: relative;
+    width: 500px;
+    height: 500px;
+    border-radius: 12px;
+}
+
+.dalamgambar img {
+    width: 100%;
+    object-fit: contain;
+    border-radius: 12px;
+}
+
+.dalamgambar .close {
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    background-color: red;
+    color: var(--color-white);
+    padding: 10px 15px;
+    border-radius: 12px;
+    font-weight: 1000;
+}
+
+
+@media only screen and (max-width: 767px) {
+
+    .detailgambar {
+        width: 90%;
+        height: 500px;
+    }
+
+    .dalamgambar {
+        width: 100%;
+        height: auto;
+    }
+
+    .dalamgambar img {
+        object-fit: cover;
+    }
+
+}

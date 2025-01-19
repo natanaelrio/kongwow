@@ -14,9 +14,11 @@ import Rekapan from '@/component/rekapan';
 import { HandleListProduct } from '@/service/product';
 import { BsFilterSquare } from "react-icons/bs";
 import SkletonListProduct from './skleton/listProduct';
+import DetailGambar from '@/component/detailGambar';
 
 export default function ListProduct() {
     const [data, setData] = useState([])
+    const [dataDetailGambar, setDataDetailGambar] = useState([])
     const { width } = useWindowDimensions();
     const [isLoading, setIsLoading] = useState(true)
     const [cart, setCart] = useState([]);
@@ -24,9 +26,13 @@ export default function ListProduct() {
     const [isFilterBox, setIsFilterBox] = useState(false); // State untuk menambahkan background merah
     const filterRef = useRef(null); // Gunakan useRef untuk elemen filter
 
+    const setDetailGambar = useBearStore((state) => state.setDetailGambar);
+    const detailGambar = useBearStore((state) => state.detailGambar);
+
     const setButonWhatsapp = useBearStore((state) => state.setButonWhatsapp);
     const setDetailList = useBearStore((state) => state.setDetailList);
     const detailList = useBearStore((state) => state.detailList);
+    const kondisiWidth = width <= 767;
 
     useEffect(() => {
         const FetchData = async () => {
@@ -59,7 +65,6 @@ export default function ListProduct() {
         };
     }, []);
 
-    const kondisiWidth = width <= 767;
 
     const handleAddToCart = (product) => {
         setCart((prev) => {
@@ -122,6 +127,11 @@ export default function ListProduct() {
         window.open(waLink, '_blank');
     };
 
+    const handleDetailGambar = (product) => {
+        setDataDetailGambar(product)
+        setDetailGambar(false)
+    }
+
 
     return (
         <>
@@ -158,7 +168,7 @@ export default function ListProduct() {
                                     return (
                                         <div key={product.id} className={`${styles.produk} ${cartItem ? styles.inCart : ''}`}>
                                             <div className={styles.gambar}
-                                                onClick={() => handleAddToCart(product)}
+                                                onClick={() => handleDetailGambar(product)}
                                             >
                                                 <Image
                                                     src={`${process.env.NEXT_PUBLIC_URL + product.image_url}`}
@@ -237,6 +247,11 @@ export default function ListProduct() {
             {!detailList && <div className={styles.bgblack}
                 onClick={() => setDetailList(!detailList)}
             ></div>}
+
+            {!detailGambar && <div className={styles.bgblack} onClick={() => setDetailGambar(true)}></div>}
+
+            {!detailGambar && <DetailGambar dataDetailGambar={dataDetailGambar} />}
+
         </>
     );
 }

@@ -6,5 +6,8 @@ export const useBearStore = create((set) => ({
     setButonWhatsapp: (e) => set((state) => ({ buttonWhatsApp: e ? e : !state.buttonWhatsApp })),
 
     detailList: true,
-    setDetailList: (e) => set((state) => ({ detailList: e ? e : !state.detailList }))
+    setDetailList: (e) => set((state) => ({ detailList: e ? e : !state.detailList })),
+
+    detailGambar: true,
+    setDetailGambar: (e) => set((state) => ({ detailGambar: e ? e : !state.detailGambar })),
 }))
