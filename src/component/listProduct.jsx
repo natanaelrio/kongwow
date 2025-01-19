@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import styles from '@/component/listProduct.module.css';
 import { formatRupiah } from '@/utils/formatRupiah';
 import Image from 'next/image';
@@ -11,18 +11,53 @@ import useWindowDimensions from '@/utils/getWindowDimensions';
 import { useBearStore } from '@/zustand/zustand';
 import { ConvertToDecimal } from '@/utils/convertToDecimal';
 import Rekapan from '@/component/rekapan';
+import { HandleListProduct } from '@/service/product';
+import { BsFilterSquare } from "react-icons/bs";
+import SkletonListProduct from './skleton/listProduct';
 
-export default function ListProduct({ data }) {
+export default function ListProduct() {
+    const [data, setData] = useState([])
     const { width } = useWindowDimensions();
+    const [isLoading, setIsLoading] = useState(true)
     const [cart, setCart] = useState([]);
+    const [filteredProducts, setFilteredProducts] = useState('')
+    const [isFilterBox, setIsFilterBox] = useState(false); // State untuk menambahkan background merah
+    const filterRef = useRef(null); // Gunakan useRef untuk elemen filter
 
     const setButonWhatsapp = useBearStore((state) => state.setButonWhatsapp);
     const setDetailList = useBearStore((state) => state.setDetailList);
     const detailList = useBearStore((state) => state.detailList);
 
     useEffect(() => {
+        const FetchData = async () => {
+            setIsLoading(true)
+            const res = await HandleListProduct()
+            const dataReal = res.filter((product) => product.weight === filteredProducts);
+            setData(filteredProducts == '' ? res : dataReal)
+            setIsLoading(false)
+        }
+        FetchData()
+    }, [filteredProducts])
+
+    useEffect(() => {
         setButonWhatsapp(cart.length > 0);
     }, [cart, setButonWhatsapp]);
+
+    // Event listener untuk menangani scroll
+    useEffect(() => {
+        const handleScroll = () => {
+            if (filterRef.current) {
+                const filterTop = filterRef.current.getBoundingClientRect().top;
+                const isVisible = filterTop <= 0; // Elemen `filter` mencapai bagian atas layar
+                setIsFilterBox(isVisible);
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
 
     const kondisiWidth = width <= 767;
 
@@ -92,56 +127,79 @@ export default function ListProduct({ data }) {
         <>
             <div className={styles.countainerluar}>
                 <div className={styles.countainer}>
+
+                    <div className={styles.kemasan}>Kemasan</div>
+
+                    <div
+                        ref={filterRef}
+                        className={`${styles.filter} ${isFilterBox ? styles.filterbox : ''}`}
+                    >
+                        <div className={styles.dalamfilter}>
+                            <div className={styles.ikonfilter}>
+                                <BsFilterSquare />
+                            </div>
+                            <button className={`${filteredProducts == '' ? styles.onfilter : styles.offfilter}`} onClick={() => setFilteredProducts('')}>Semua</button>
+                            <button className={`${filteredProducts == 250 ? styles.onfilter : styles.offfilter}`} onClick={() => setFilteredProducts(250)}>¼kg</button>
+                            <button className={`${filteredProducts == 500 ? styles.onfilter : styles.offfilter}`} onClick={() => setFilteredProducts(500)}>½Kg</button>
+                            <button className={`${filteredProducts == 1000 ? styles.onfilter : styles.offfilter}`} onClick={() => setFilteredProducts(1000)}>Campur</button>
+                        </div>
+                    </div>
+
                     <div className={styles.listproduk}>
                         <div className={styles.gridlist}>
-                            {data?.map((product) => {
-                                const cartItem = cart.find((item) => item.id === product.id);
-                                const productCount = cartItem?.count || 0;
 
-                                return (
-                                    <div key={product.id} className={`${styles.produk} ${cartItem ? styles.inCart : ''}`}>
-                                        <div className={styles.gambar}>
-                                            <Image
-                                                src={`${process.env.NEXT_PUBLIC_URL + product.image_url}`}
-                                                alt={product.title}
-                                                width={500}
-                                                height={500}
-                                            />
-                                        </div>
-                                        <div className={styles.informasi}>
-                                            <div className={styles.judul}>{product.title}</div>
-                                            <div className={styles.harga}>
-                                                <div className={styles.hargadiskon}>{formatRupiah(product.price)}</div>
-                                                <div className={styles.hargaasli}>{formatRupiah(product.original_price)}</div>
+                            {isLoading ? <SkletonListProduct /> :
+                                data?.map((product) => {
+                                    const cartItem = cart.find((item) => item.id === product.id);
+                                    const productCount = cartItem?.count || 0;
+
+                                    return (
+                                        <div key={product.id} className={`${styles.produk} ${cartItem ? styles.inCart : ''}`}>
+                                            <div className={styles.gambar}
+                                                onClick={() => handleAddToCart(product)}
+                                            >
+                                                <Image
+                                                    src={`${process.env.NEXT_PUBLIC_URL + product.image_url}`}
+                                                    alt={product.title}
+                                                    width={500}
+                                                    height={500}
+                                                />
                                             </div>
-                                            {!cartItem ? (
-                                                <button onClick={() => handleAddToCart(product)}>
-                                                    <div className={styles.logo}>
-                                                        <BsCartPlus />
-                                                    </div>
-                                                    <span>Keranjang+</span>
-                                                </button>
-                                            ) : (
-                                                <div className={styles.cartActions}>
-                                                    <button onClick={() => handleRemoveFromCart(product.id)}>
-                                                        {productCount === 1 ? <FaRegTrashAlt /> : <AiOutlineMinus />}
-                                                    </button>
-                                                    <span>{productCount}</span>
-                                                    <button onClick={() => handleAddToCart(product)}>
-                                                        <AiOutlinePlus />
-                                                    </button>
+                                            <div className={styles.informasi}>
+                                                <div className={styles.judul}>{product.title}</div>
+                                                <div className={styles.harga}>
+                                                    <div className={styles.hargadiskon}>{formatRupiah(product.price)}</div>
+                                                    <div className={styles.hargaasli}>{formatRupiah(product.original_price)}</div>
                                                 </div>
-                                            )}
+                                                {!cartItem ? (
+                                                    <button onClick={() => handleAddToCart(product)}>
+                                                        <div className={styles.logo}>
+                                                            <BsCartPlus />
+                                                        </div>
+                                                        <span>Keranjang+</span>
+                                                    </button>
+                                                ) : (
+                                                    <div className={styles.cartActions}>
+                                                        <button onClick={() => handleRemoveFromCart(product.id)}>
+                                                            {productCount === 1 ? <FaRegTrashAlt /> : <AiOutlineMinus />}
+                                                        </button>
+                                                        <span>{productCount}</span>
+                                                        <button onClick={() => handleAddToCart(product)}>
+                                                            <AiOutlinePlus />
+                                                        </button>
+                                                    </div>
+                                                )}
+                                            </div>
+                                            <div className={styles.angka}>
+                                                <div className={styles.satu}>{product.discount_percent} %</div>
+                                            </div>
+                                            <div className={styles.weight}>
+                                                {ConvertToDecimal(product.weight) + 'kg'}
+                                            </div>
                                         </div>
-                                        <div className={styles.angka}>
-                                            <div className={styles.satu}>{product.discount_percent} %</div>
-                                        </div>
-                                        <div className={styles.weight}>
-                                            {ConvertToDecimal(product.weight) + 'kg'}
-                                        </div>
-                                    </div>
-                                );
-                            })}
+                                    );
+                                })
+                            }
                         </div>
                     </div>
                 </div>

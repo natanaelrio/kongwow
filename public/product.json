@@ -47,7 +47,7 @@
         "discount_percent": 50,
         "count": 1,
         "image_url": "/sapipanggang.webp",
-        "weight": 500
+        "weight": 250
     },
     {
         "id": 6,
@@ -57,7 +57,7 @@
         "discount_percent": 50,
         "count": 1,
         "image_url": "/baladoextrapedas.webp",
-        "weight": 500
+        "weight": 250
     },
     {
         "id": 7,
@@ -67,7 +67,7 @@
         "discount_percent": 50,
         "count": 1,
         "image_url": "/sapipanggang.webp",
-        "weight": 500
+        "weight": 250
     },
     {
         "id": 8,

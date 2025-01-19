@@ -10,7 +10,8 @@ export async function HandleListProduct() {
                 'Authorization': process.env.NEXT_PUBLIC_SECREET
             }, next: { revalidate: 0 }
         })
-        return res.json()
+        const data = res.json()
+        return data
     }
 
     catch (error) {
