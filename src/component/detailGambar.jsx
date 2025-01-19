@@ -1,10 +1,13 @@
 'use client'
+import { useLockBodyScroll } from "@uidotdev/usehooks";
 import Image from "next/image"
 import styles from '@/component/detailGambar.module.css'
 import { useBearStore } from '@/zustand/zustand';
 
 export default function DetailGambar({ dataDetailGambar }) {
+    useLockBodyScroll();
     const setDetailGambar = useBearStore((state) => state.setDetailGambar);
+
     return (
         <div className={styles.detailgambar}
             onClick={() => setDetailGambar(true)}
