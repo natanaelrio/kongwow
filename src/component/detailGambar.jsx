@@ -10,7 +10,6 @@ export default function DetailGambar({ dataDetailGambar }) {
             onClick={() => setDetailGambar(true)}
         >
             <div className={styles.dalamgambar}>
-
                 <Image
                     src={`${process.env.NEXT_PUBLIC_URL + dataDetailGambar.image_url}`}
                     alt={dataDetailGambar.title}
