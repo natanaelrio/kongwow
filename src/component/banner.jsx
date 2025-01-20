@@ -42,8 +42,8 @@ export default function Banner() {
                 <div className={styles.gambar}>
                     <Image src={`${process.env.NEXT_PUBLIC_URL}/bannermobile.webp`}
                         alt='bannermobile'
-                        width={4000}
-                        height={4000} />
+                        width={1080}
+                        height={1080} />
 
                     <div className={styles.overlay}>
                         <div className={styles.text}>

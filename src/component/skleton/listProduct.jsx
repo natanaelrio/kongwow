@@ -9,7 +9,7 @@ export default function SkletonListProduct() {
                 [...Array(10).keys()].map((i) => {
                     return (
                         <>
-                            <div className={styles.produk}>
+                            <div key={i} className={styles.produk}>
                                 <div className={styles.gambar}>
                                     <Skeleton style={{ height: '200px' }} />
                                 </div>

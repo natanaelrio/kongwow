@@ -273,8 +273,8 @@
 }
 
 .cartSummary .pesan .detail {
-    background-color: var(--color-grey);
-    color: var(--color-black);
+    background-color: var(--color-black);
+    color: var(--color-white);
     padding: 5px 20px;
     text-align: center;
     border-radius: 10px 10px 0 0;
@@ -292,8 +292,9 @@
 }
 
 .cartSummary .pesan .tombolpesansekarang {
-    background-color: var(--color-black);
-    color: var(--color-white);
+    font-weight: 900;
+    background-color: var(--color-yellow);
+    color: var(--color-black);
     padding: 20px;
     display: flex;
     align-items: center;
@@ -305,7 +306,7 @@
 }
 
 .cartSummary .pesan .tombolpesansekarang:hover {
-    background-color: var(--hover-color-black);
+    background-color: var(--hover-color-yellow);
     transition: all ease 0.1s;
 }
 
@@ -445,6 +446,21 @@
 
     .dalamfilter {
         padding: 0 20px;
+    }
+
+    .cartSummary .pesan .tombolpesansekarang {
+        background-color: var(--color-black);
+        color: var(--color-white);
+    }
+
+    .cartSummary .pesan .detail {
+        background-color: var(--color-black);
+        color: var(--color-white);
+    }
+
+    .cartSummary .pesan .tombolpesansekarang:hover {
+        background-color: var(--color-black);
+        transition: all ease 0.1s;
     }
 
 }

@@ -173,8 +173,8 @@ export default function ListProduct() {
                                                 <Image
                                                     src={`${process.env.NEXT_PUBLIC_URL + product.image_url}`}
                                                     alt={product.title}
-                                                    width={500}
-                                                    height={500}
+                                                    width={300}
+                                                    height={300}
                                                 />
                                             </div>
                                             <div className={styles.informasi}>
