@@ -156,10 +156,14 @@ export default function ListProduct() {
                             <button className={`${filteredProducts == 1000 ? styles.onfilter : styles.offfilter}`} onClick={() => setFilteredProducts(1000)}>Campur</button>
                         </div>
                     </div>
-
+                    {!data.length &&
+                        <>
+                            {/* <div>belum ada Produk</div> */}
+                            <div className={styles.notfound}>Pilih yang lain yaa..😁</div>
+                        </>
+                    }
                     <div className={styles.listproduk}>
                         <div className={styles.gridlist}>
-
                             {isLoading ? <SkletonListProduct /> :
                                 data?.map((product) => {
                                     const cartItem = cart.find((item) => item.id === product.id);

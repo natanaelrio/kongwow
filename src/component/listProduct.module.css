@@ -336,6 +336,11 @@
     opacity: 0.9;
 }
 
+.notfound {
+    padding: 30px 0;
+    color: var(--color-black);
+    font-weight: 700;
+}
 
 
 @media only screen and (max-width: 1030px) {

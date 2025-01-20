@@ -1,53 +1,53 @@
 [
     {
         "id": 1,
-        "title": "Sapi Panggang",
+        "title": "Jagung Manis",
         "price": 21000,
         "original_price": 42000,
         "discount_percent": 50,
         "count": 1,
-        "image_url": "/sapipanggang.webp",
+        "image_url": "/jagungmanis.webp",
         "weight": 500
     },
     {
         "id": 2,
-        "title": "Balado Extra Pedas",
+        "title": "Pedas Manis",
         "price": 21000,
         "original_price": 42000,
         "discount_percent": 50,
         "count": 1,
-        "image_url": "/baladoextrapedas.webp",
+        "image_url": "/pedasmanis.webp",
         "weight": 500
     },
     {
         "id": 3,
-        "title": "Balado Pedas Manis",
-        "price": 21000,
-        "original_price": 42000,
-        "discount_percent": 50,
-        "count": 1,
-        "image_url": "/sapipanggang.webp",
-        "weight": 500
-    },
-    {
-        "id": 4,
-        "title": "Balado",
-        "price": 21000,
-        "original_price": 42000,
-        "discount_percent": 50,
-        "count": 1,
-        "image_url": "/baladoextrapedas.webp",
-        "weight": 500
-    },
-    {
-        "id": 5,
         "title": "Jagung Bakar",
         "price": 21000,
         "original_price": 42000,
         "discount_percent": 50,
         "count": 1,
-        "image_url": "/sapipanggang.webp",
-        "weight": 250
+        "image_url": "/jagungbakar.webp",
+        "weight": 500
+    },
+    {
+        "id": 4,
+        "title": "Barbeque",
+        "price": 21000,
+        "original_price": 42000,
+        "discount_percent": 50,
+        "count": 1,
+        "image_url": "/barbeque.webp",
+        "weight": 500
+    },
+    {
+        "id": 5,
+        "title": "Balado Extra Pedas",
+        "price": 21000,
+        "original_price": 42000,
+        "discount_percent": 50,
+        "count": 1,
+        "image_url": "/baladoextrapedas2.webp",
+        "weight": 500
     },
     {
         "id": 6,
@@ -56,8 +56,8 @@
         "original_price": 42000,
         "discount_percent": 50,
         "count": 1,
-        "image_url": "/baladoextrapedas.webp",
-        "weight": 250
+        "image_url": "/rumputlaut.webp",
+        "weight": 500
     },
     {
         "id": 7,
@@ -66,17 +66,27 @@
         "original_price": 42000,
         "discount_percent": 50,
         "count": 1,
-        "image_url": "/sapipanggang.webp",
-        "weight": 250
+        "image_url": "/keju.webp",
+        "weight": 500
     },
     {
         "id": 8,
-        "title": "Barbeque",
+        "title": "Sapi Panggang",
         "price": 21000,
         "original_price": 42000,
         "discount_percent": 50,
         "count": 1,
-        "image_url": "/baladoextrapedas.webp",
+        "image_url": "/sapipanggang2.webp",
+        "weight": 500
+    },
+    {
+        "id": 9,
+        "title": "Balado",
+        "price": 21000,
+        "original_price": 42000,
+        "discount_percent": 50,
+        "count": 1,
+        "image_url": "/balado.webp",
         "weight": 500
     }
 ]
