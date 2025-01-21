@@ -138,7 +138,7 @@ export default function ListProduct() {
             <div className={styles.countainerluar}>
                 <div className={styles.countainer}>
 
-                    <div className={styles.kemasan}>
+                    {/* <div className={styles.kemasan}>
                         Kemasan
                     </div>
 
@@ -158,10 +158,9 @@ export default function ListProduct() {
                     </div>
                     {!isLoading && !data.length &&
                         <>
-                            {/* <div>belum ada Produk</div> */}
                             <div className={styles.notfound}>Pilih yang lain yaa..😁</div>
                         </>
-                    }
+                    } */}
                     <div className={styles.listproduk}>
                         <div className={styles.gridlist}>
                             {isLoading ? <SkletonListProduct /> :
