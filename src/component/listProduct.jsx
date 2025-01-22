@@ -25,7 +25,7 @@ export default function ListProduct() {
     const [filteredProducts, setFilteredProducts] = useState('')
     const [isFilterBox, setIsFilterBox] = useState(false); // State untuk menambahkan background merah
     const filterRef = useRef(null); // Gunakan useRef untuk elemen filter
-   
+
     const setDetailGambar = useBearStore((state) => state.setDetailGambar);
     const detailGambar = useBearStore((state) => state.detailGambar);
 
@@ -246,6 +246,9 @@ export default function ListProduct() {
                 />}
 
                 <div className={styles.pesan}>
+                    <div className={styles.note}>
+                        Lebih Hemat! Gratis Ongkir 😊
+                    </div>
                     <div className={styles.detail}
                         onClick={() => setDetailList(!detailList)}
                         style={!kondisiWidth && !detailList ? { display: 'none' } : { display: 'flex' }}

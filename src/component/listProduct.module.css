@@ -272,6 +272,19 @@
 .cartSummary .pesan {
     display: flex;
     flex-direction: column;
+    position: relative;
+}
+
+.cartSummary .pesan .note {
+    display: none;
+    position: absolute;
+    top: -20px;
+    background-color: var(--color-yellow);
+    width: 100%;
+    padding: 3px 20px;
+    font-size: 0.6rem;
+    text-align: center;
+    font-weight: 700;
 }
 
 .cartSummary .pesan .detail {
@@ -506,6 +519,12 @@
         width: 50px;
         height: 20px;
         padding: 4px 8px;
+    }
+
+
+    .cartSummary .pesan .note {
+        display: unset;
+        justify-content: center;
     }
 }
 
