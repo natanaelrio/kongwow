@@ -12,9 +12,9 @@ import { useBearStore } from '@/zustand/zustand';
 import { ConvertToDecimal } from '@/utils/convertToDecimal';
 import Rekapan from '@/component/rekapan';
 import { HandleListProduct } from '@/service/product';
-import { BsFilterSquare } from "react-icons/bs";
 import SkletonListProduct from './skleton/listProduct';
 import DetailGambar from '@/component/detailGambar';
+import toast, { Toaster } from 'react-hot-toast';
 
 export default function ListProduct() {
     const [data, setData] = useState([])
@@ -25,7 +25,7 @@ export default function ListProduct() {
     const [filteredProducts, setFilteredProducts] = useState('')
     const [isFilterBox, setIsFilterBox] = useState(false); // State untuk menambahkan background merah
     const filterRef = useRef(null); // Gunakan useRef untuk elemen filter
-
+   
     const setDetailGambar = useBearStore((state) => state.setDetailGambar);
     const detailGambar = useBearStore((state) => state.detailGambar);
 
@@ -118,6 +118,24 @@ export default function ListProduct() {
 
     const handlePesanSekarang = () => {
         const { items, grandTotal } = getCartSummary();
+
+        // Validasi berat
+        const isWeightValid = grandTotalWeight % 1000 === 0;
+        if (!isWeightValid) {
+            toast('Kurang Genap!',
+                {
+                    icon: '👏',
+                    style: {
+                        borderRadius: '10px',
+                        background: '#fff',
+                        color: '#333',
+                        fontWeight: 700
+                    },
+                }
+            );
+            return false;
+        }
+
         const waNumber = process.env.NEXT_PUBLIC_WA; // Ganti dengan nomor WhatsApp tujuan
         const itemList = items.map((item) =>
             `- ${item.title} (${ConvertToDecimal(item.weight)}kg) (${item.count} x ${formatRupiah(item.price)}) = ${formatRupiah(item.total)}`
@@ -233,7 +251,7 @@ export default function ListProduct() {
                         style={!kondisiWidth && !detailList ? { display: 'none' } : { display: 'flex' }}
                     >
                         <span>
-                            Lihat Detail ({items.length})
+                            Lihat Detail ({totalCount})
                             <IoIosArrowUp />
                         </span>
                     </div>

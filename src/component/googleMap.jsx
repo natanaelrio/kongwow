@@ -1,10 +1,42 @@
 'use client'
 import styles from '@/component/googleMap.module.css'
+import { useBearStore } from '@/zustand/zustand';
+import { useEffect, useRef } from 'react';
 import { FaWhatsapp } from "react-icons/fa";
 
 export default function GoogleMap() {
+
+    const ref = useRef(null);
+    const setIsIntersecting = useBearStore((state) => state.setIsIntersecting)
+    const isIntersecting = useBearStore((state) => state.isIntersecting)
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                setIsIntersecting(entry.isIntersecting);
+            },
+            {
+                root: null, // Menggunakan viewport sebagai root
+                rootMargin: "0px",
+                threshold: 0.1 // Elemen dianggap terlihat jika 10% dari ukurannya terlihat di viewport
+            }
+        );
+
+        if (ref.current) {
+            observer.observe(ref.current);
+        }
+
+        return () => {
+            if (ref.current) {
+                // eslint-disable-next-line react-hooks/exhaustive-deps
+                observer.unobserve(ref.current);
+            }
+        };
+    }, [setIsIntersecting]);
+
+
     return (
-        <div className={styles.container}>
+        <div className={styles.container} ref={ref}>
             <div className={styles.dalamcontainer}>
                 <div className={styles.text}>
                     <h1>KONG WOW</h1>

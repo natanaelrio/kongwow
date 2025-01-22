@@ -10,4 +10,7 @@ export const useBearStore = create((set) => ({
 
     detailGambar: true,
     setDetailGambar: (e) => set((state) => ({ detailGambar: e ? e : !state.detailGambar })),
+
+    isIntersecting: true,
+    setIsIntersecting: (e) => set((state) => ({ isIntersecting: e ? e : !state.isIntersecting })),
 }))

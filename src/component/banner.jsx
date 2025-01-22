@@ -9,7 +9,7 @@ import { OpenWhatsApp } from '@/utils/tombolWhatsapp';
 export default function Banner() {
     const isVisible = useScrollVisibility()
     const buttonWhatsApp = useBearStore((state) => state.buttonWhatsApp)
-
+    const isIntersecting = useBearStore((state) => state.isIntersecting)
 
     return (
         <>
@@ -54,17 +54,19 @@ export default function Banner() {
                 </div>
             </div>
 
-            <div
-                style={{ display: isVisible ? "none" : "flex", bottom: buttonWhatsApp ? 90 : 30, right: buttonWhatsApp ? 40 : 30 }}
-                onClick={() => OpenWhatsApp()}
-                className={styles.tombolwhatsapp}>
-                <button>
-                    <FaWhatsapp size={30} />
-                    {/* <span>
+            {!isIntersecting &&
+                <div
+                    style={{ display: isVisible ? "none" : "flex", bottom: buttonWhatsApp ? 90 : 30, right: buttonWhatsApp ? 40 : 30 }}
+                    onClick={() => OpenWhatsApp()}
+                    className={styles.tombolwhatsapp}>
+                    <button>
+                        <FaWhatsapp size={30} />
+                        {/* <span>
                         Whatsapp
                     </span> */}
-                </button>
-            </div>
+                    </button>
+                </div>
+            }
         </>
     )
 }
