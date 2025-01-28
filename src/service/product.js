@@ -8,7 +8,9 @@ export async function HandleListProduct() {
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': process.env.NEXT_PUBLIC_SECREET
-            }, next: { revalidate: 0 }
+            },
+            next: { revalidate: 0 },
+            cache: 'no-store'
         })
         const data = res.json()
         return data
