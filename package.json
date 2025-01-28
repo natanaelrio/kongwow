@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@next/third-parties": "^15.1.6",
     "@uidotdev/usehooks": "^2.4.1",
     "next": "14.0.3",
     "react": "^18",
