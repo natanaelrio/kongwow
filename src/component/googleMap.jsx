@@ -1,5 +1,6 @@
 'use client'
 import styles from '@/component/googleMap.module.css'
+import { OpenWhatsApp } from '@/utils/tombolWhatsapp';
 import { useBearStore } from '@/zustand/zustand';
 import { useEffect, useRef } from 'react';
 import { FaWhatsapp } from "react-icons/fa";
