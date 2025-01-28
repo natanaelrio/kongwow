@@ -16,11 +16,12 @@ import SkletonListProduct from './skleton/listProduct';
 import DetailGambar from '@/component/detailGambar';
 import toast, { Toaster } from 'react-hot-toast';
 
-export default function ListProduct() {
-    const [data, setData] = useState([])
+export default function ListProduct({ dataList }) {
+
+    const [data, setData] = useState(dataList)
     const [dataDetailGambar, setDataDetailGambar] = useState([])
     const { width } = useWindowDimensions();
-    const [isLoading, setIsLoading] = useState(true)
+    const [isLoading, setIsLoading] = useState(false)
     const [cart, setCart] = useState([]);
     const [filteredProducts, setFilteredProducts] = useState('')
     const [isFilterBox, setIsFilterBox] = useState(false); // State untuk menambahkan background merah
@@ -34,16 +35,16 @@ export default function ListProduct() {
     const detailList = useBearStore((state) => state.detailList);
     const kondisiWidth = width <= 767;
 
-    useEffect(() => {
-        const FetchData = async () => {
-            setIsLoading(true)
-            const res = await HandleListProduct()
-            const dataReal = res.filter((product) => product.weight === filteredProducts);
-            setData(filteredProducts == '' ? res : dataReal)
-            setIsLoading(false)
-        }
-        FetchData()
-    }, [filteredProducts])
+    // useEffect(() => {
+    //     const FetchData = async () => {
+    //         setIsLoading(true)
+    //         const res = await HandleListProduct()
+    //         const dataReal = res.filter((product) => product.weight === filteredProducts);
+    //         setData(filteredProducts == '' ? res : dataReal)
+    //         setIsLoading(false)
+    //     }
+    //     FetchData()
+    // }, [filteredProducts])
 
     useEffect(() => {
         setButonWhatsapp(cart.length > 0);

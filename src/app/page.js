@@ -3,6 +3,7 @@ import Footer from '@/component/footer'
 import GoogleMap from '@/component/googleMap'
 import ListProduct from '@/component/listProduct'
 import Promo from '@/component/promo'
+import { HandleListProduct } from '@/service/product'
 
 export const metadata = {
   title: 'Kong Wow | Camilan Singkong Istimewa',
@@ -11,11 +12,12 @@ export const metadata = {
 
 export default async function Home() {
 
+  const data = await HandleListProduct()
   return (
     <>
       <Banner />
       <Promo />
-      <ListProduct />
+      <ListProduct dataList={data} />
       <GoogleMap />
       <Footer />
     </>
