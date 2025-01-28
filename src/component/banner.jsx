@@ -5,11 +5,17 @@ import Image from 'next/image'
 import { FaWhatsapp } from "react-icons/fa";
 import { useBearStore } from '@/zustand/zustand';
 import { OpenWhatsApp } from '@/utils/tombolWhatsapp';
+import { initFacebookPixel } from '@/utils/facebookPixel';
+import { useEffect } from 'react';
 
 export default function Banner() {
     const isVisible = useScrollVisibility()
     const buttonWhatsApp = useBearStore((state) => state.buttonWhatsApp)
     const isIntersecting = useBearStore((state) => state.isIntersecting)
+
+    useEffect(() => {
+        initFacebookPixel()
+    }, []);
 
     return (
         <>

@@ -1,12 +1,15 @@
 'use client'
-import ReactPixel from 'react-facebook-pixel';
+export const initFacebookPixel = async (pixelId) => {
+    if (typeof window !== 'undefined') {
+        const ReactPixel = (await import('react-facebook-pixel')).default;
+        ReactPixel.init(507471651919439);
+        // ReactPixel.pageView();
+    }
+};
 
-export default function FacebookPixel() {
-    const advancedMatching = { em: 'some@email.com' }; // optional, more info: https://developers.facebook.com/docs/facebook-pixel/advanced/advanced-matching
-    const options = {
-        autoConfig: true, // set pixel's autoConfig. More info: https://developers.facebook.com/docs/facebook-pixel/advanced/
-        debug: false, // enable logs
-    };
-
-    return ReactPixel.init('507471651919439', advancedMatching, options);
-}
+export const trackEvent = async (event, data) => {
+    if (typeof window !== 'undefined') {
+        const ReactPixel = (await import('react-facebook-pixel')).default;
+        ReactPixel.trackCustom(event, data);
+    }
+};

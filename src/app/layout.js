@@ -1,7 +1,6 @@
 import { Inter } from 'next/font/google'
 import './globals.css'
 import Toast from '@/component/Toast'
-import FacebookPixel from '@/utils/facebookPixel'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -13,7 +12,6 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <FacebookPixel />
       <Toast />
       <body className={inter.className}>{children}</body>
     </html>
