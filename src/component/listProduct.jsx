@@ -15,6 +15,7 @@ import { HandleListProduct } from '@/service/product';
 import SkletonListProduct from './skleton/listProduct';
 import DetailGambar from '@/component/detailGambar';
 import toast, { Toaster } from 'react-hot-toast';
+import ReactPixel from 'react-facebook-pixel';
 
 export default function ListProduct({ dataList }) {
 
@@ -119,7 +120,6 @@ export default function ListProduct({ dataList }) {
 
     const handlePesanSekarang = () => {
         const { items, grandTotal } = getCartSummary();
-
         // Validasi berat
         const isWeightValid = grandTotalWeight % 1000 === 0;
         if (!isWeightValid) {
@@ -136,6 +136,7 @@ export default function ListProduct({ dataList }) {
             );
             return false;
         }
+        ReactPixel.trackCustom('order', { order: formatRupiah(grandTotal) });
 
         const waNumber = process.env.NEXT_PUBLIC_WA; // Ganti dengan nomor WhatsApp tujuan
         const itemList = items.map((item) =>

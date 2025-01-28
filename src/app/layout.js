@@ -1,7 +1,7 @@
 import { Inter } from 'next/font/google'
 import './globals.css'
 import Toast from '@/component/Toast'
-import { GoogleTagManager } from '@next/third-parties/google'
+import FacebookPixel from '@/utils/facebookPixel'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -13,7 +13,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <GoogleTagManager gtmId="GTM-N9Q66F29" />
+      <FacebookPixel />
       <Toast />
       <body className={inter.className}>{children}</body>
     </html>
