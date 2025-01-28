@@ -56,6 +56,7 @@ export default function Banner() {
 
             {!isIntersecting &&
                 <div
+                    id='tombolwhatsapp'
                     style={{ display: isVisible ? "none" : "flex", bottom: buttonWhatsApp ? 90 : 30, right: buttonWhatsApp ? 40 : 30 }}
                     onClick={() => OpenWhatsApp()}
                     className={styles.tombolwhatsapp}>
