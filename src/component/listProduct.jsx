@@ -122,7 +122,7 @@ export default function ListProduct({ dataList }) {
         // Validasi berat
         const isWeightValid = grandTotalWeight % 1000 === 0;
         if (!isWeightValid) {
-            toast('Kurang Genap!',
+            toast('Kurang Genap! min 1kg',
                 {
                     icon: '👏',
                     style: {
