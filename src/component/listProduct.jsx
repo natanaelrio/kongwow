@@ -122,7 +122,7 @@ export default function ListProduct({ dataList }) {
         // Validasi berat
         const isWeightValid = grandTotalWeight % 1000 === 0;
         if (!isWeightValid) {
-            toast('Kurang Genap! min 1kg',
+            toast('Maaf, total berat harus kelipatan 1kg (1000g). Silakan sesuaikan pesanan Anda.',
                 {
                     icon: '👏',
                     style: {
